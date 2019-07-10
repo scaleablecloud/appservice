@@ -30,38 +30,19 @@ import java.util.UUID;
         allowGetters = true)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class BaseModel implements Serializable {
-
-//    @Id
-//    @GeneratedValue(generator = "uuid2")
-//    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-//    @Column(name = "id", columnDefinition = "BINARY(16)")
-//    protected UUID id;
-
-    //    @Id
-//    @GeneratedValue(generator = "question_generator")
-//    @SequenceGenerator(
-//            name = "question_generator",
-//            sequenceName = "question_sequence",
-//            initialValue = 1000
-//    )
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private UUID id;
-
     @Id
-    @Column(name = "id")
-    @org.hibernate.annotations.Type(type="org.hibernate.type.PostgresUUIDType")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     protected String name;
 
-    //    @CreationTimestamp
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
     @CreatedDate
     protected Date createdAt;
 
-    //    @UpdateTimestamp
+    @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     @LastModifiedDate

@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
+//@RequestMapping(value = "${app.url}" + "/skill")
 @RestController
-@RequestMapping(value = "${app.url}" + "/skill")
+@RequestMapping("/skill")
 public class SkillController extends BaseController<SkillService, Skill> {
 
 }

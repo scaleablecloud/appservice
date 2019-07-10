@@ -44,8 +44,13 @@ public class BaseModel implements Serializable {
 //            sequenceName = "question_sequence",
 //            initialValue = 1000
 //    )
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private UUID id;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @org.hibernate.annotations.Type(type="org.hibernate.type.PostgresUUIDType")
     private UUID id;
 
     protected String name;
